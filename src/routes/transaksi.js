@@ -6,10 +6,7 @@ const controllerTransaksi = require('../controllers/transaksi')
 Routes
     // .all('/*', auth.authInfo)
     .get('/', controllerTransaksi.getAllTransaksi)
-    // .get('/day', controllerTransaksi.getTransactionByDay)
-    // .get('/week', controllerTransaksi.getTransactionByWeek)
-    // .get('/month', controllerTransaksi.getTransactionByMonth)
-    // .get('/year', controllerTransaksi.getTransactionByYear)
     .post('/', controllerTransaksi.postTransaksi)
+    .post('/email', controllerTransaksi.sendMail)
 
 module.exports = Routes

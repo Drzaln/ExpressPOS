@@ -4,7 +4,7 @@ module.exports = {
   getAllTransaki: () => {
     return new Promise((resolve, reject) => {
       conn.query(
-        'SELECT * FROM transaki INNER JOIN user ON transaki.id_user = user.id_user INNER JOIN menu ON transaki.id_menu = menu.id_menu ORDER BY id_transaki DESC',
+        'SELECT * FROM transaki INNER JOIN user ON transaki.id_user = user.id_user INNER JOIN menu ON transaki.id_menu = menu.id_menu',
         (err, result) => {
           if (!err) {
             resolve(result)

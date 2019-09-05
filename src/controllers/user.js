@@ -1,3 +1,4 @@
+require('dotenv').config()
 const resp = require('../helpers/helper')
 const userModel = require('../models/user')
 const jwt = require('jsonwebtoken')
@@ -32,7 +33,7 @@ module.exports = {
     const salt = resp.generateSalt(18)
     const passwordHash = resp.setPassword(req.body.password, salt)
     const data = {
-      nama: req.body.nama,
+      nama_user: req.body.nama_user,
       username: req.body.username,
       password: passwordHash.passwordHash,
       salt: passwordHash.salt,
@@ -61,11 +62,11 @@ module.exports = {
           dataUser.token = jwt.sign(
             {
               id_user: dataUser.id_user,
-              nama: dataUser.nama,
+              nama_user: dataUser.nama_user,
               username: dataUser.username,
               role: dataUser.name
             },
-            process.env.SECRET_KEY,
+            'jos',
             { expiresIn: '60m' }
           )
           const token = dataUser.token

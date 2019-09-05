@@ -1,3 +1,4 @@
+require('dotenv').config()
 const menuModel = require('../models/menu')
 const resp = require('../helpers/helper')
 const multer = require('multer')
@@ -65,14 +66,29 @@ module.exports = {
       })
   },
 
-  editMenu: (req, res) => {
+  editMenu: async(req, res) => {
     const id_menu = req.params.id_menu
-    let fileName = '/images/' + req.file.filename
-    console.log('nama file', fileName)
+    // let fileName = '/images/' + req.file.filename
+    // console.log('nama file', fileName)
+    const path = req.file.path
+    const getUrl = async req => {
+      cloudinary.config({
+        cloud_name: 'drkil2jlo',
+        api_key: '742171894379478',
+        api_secret: 'E-YamDDHf2I6Y3k5TQ9sqh4A9Aw'
+      })
+
+      let dataImg
+      await cloudinary.uploader.upload(path, result => {
+        console.log(`coba cloud`, path)
+        dataImg = result.url
+      })
+      return dataImg
+    }
     const data = {
       id_menu: req.body.id_menu,
       nama: req.body.nama,
-      foto: fileName,
+      foto: await getUrl(),
       harga: req.body.harga
     }
     menuModel
