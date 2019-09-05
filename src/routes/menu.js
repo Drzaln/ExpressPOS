@@ -21,7 +21,6 @@ let imageStore = multer.diskStorage({
   let upload = multer({ storage: imageStore, limits: { fileSize: 1000000000 } })
   
 Route
-    // .all('/*', auth.authInfo)
     .get('/', menuController.getAllMenu)
     .get('/id_menu', menuController.getMenuById)
     .post('/', upload.single('foto'), menuController.postMenu)
