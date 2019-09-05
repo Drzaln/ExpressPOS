@@ -6,7 +6,14 @@ const app = express();
 const xssFilter = require('x-xss-protection')
 const logger = require('morgan')
 
-const port = process.env.PORT || 6000;
+const port = process.env.PORT || 8000;
+
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, PATCH, DELETE");
+    next();
+  });
 
 const userRoute = require('./src/routes/user')
 const kategoriRoute = require('./src/routes/kategori')

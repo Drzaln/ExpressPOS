@@ -7,15 +7,15 @@ const connect = sql.createConnection({
     // password: process.env.DB_PASS,
     // database: process.env.DB_NAME,
 
-    // host: 'localhost',
-    // user: 'root',
-    // password: '',
-    // database: 'reactpos',
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'reactpos',
     
-    host: "remotemysql.com",
-    user: "5u6oIbJGbd",
-    password: "fAUunrrxHL",
-    database: "5u6oIbJGbd",
+    // host: "remotemysql.com",
+    // user: "5u6oIbJGbd",
+    // password: "fAUunrrxHL",
+    // database: "5u6oIbJGbd",
 })
 
 // Username: 5u6oIbJGbd

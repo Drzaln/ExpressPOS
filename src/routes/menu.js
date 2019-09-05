@@ -7,9 +7,9 @@ const menuController = require('../controllers/menu')
 const auth = require('../helpers/auth')
 
 let imageStore = multer.diskStorage({
-    destination: function (req, file, callback) {
-      callback(null, './uploads/images/')
-    },
+    // destination: function (req, file, callback) {
+    //   callback(null, './uploads/images/')
+    // },
     filename: function (req, file, callback) {
       callback(
         null,
