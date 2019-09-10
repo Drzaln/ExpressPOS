@@ -19,6 +19,7 @@ const userRoute = require('./src/routes/user')
 const kategoriRoute = require('./src/routes/kategori')
 const menuRoute = require('./src/routes/menu')
 const transaksiRoute = require('./src/routes/transaksi')
+const kirimEmail = require('./src/routes/mail')
 
 app.listen(port, () => {
     console.log(`Mulai di port ${port}`)
@@ -34,3 +35,4 @@ app.use('/user', userRoute)
 app.use('/kategori', kategoriRoute)
 app.use('/menu', menuRoute)
 app.use('/transaksi', transaksiRoute)
+app.use('/email', kirimEmail)

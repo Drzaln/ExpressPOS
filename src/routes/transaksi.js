@@ -7,6 +7,6 @@ Routes
     // .all('/*', auth.authInfo)
     .get('/', controllerTransaksi.getAllTransaksi)
     .post('/', controllerTransaksi.postTransaksi)
-    .post('/email', controllerTransaksi.sendMail)
+    // .post('/email', controllerTransaksi.sendMail)
 
 module.exports = Routes
